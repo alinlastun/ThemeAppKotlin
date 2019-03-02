@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Update Keyboard Theme</string>
+	<string name="keyboard_theme_name">Update Keyboard Theme</string>
+	<string name="keyboard_theme_description">Be up to date with this Update Keyboard Theme!</string>
+    <string name="base_theme">RobotoCondensed-Regular.ttf</string>
+    <string name="theme_id">1126e270-rnta-ct-update-1190948a22109</string><string name="get">Please install Keyboard Plus to apply this theme</string>
+    <string name="hint_font">Oswald-Regular.ttf</string>
+    <string name="hint_font_numbers">Oswald-Regular.ttf</string> <string name="mobilecore">2DTXYB6HTIZDBSRZBN621I8HGRM5L</string>
+    <string name="hash">3138b9ab57bd222f65ddeec8ea343db44e06e5661419a65a4bdda277ba06fa81</string>
+    <string name="mother_packagename">com.themejunky.keyboardplus</string>
+    <string name="analytics_traker_id">UA-100882717-1</string>
+
+    <string name="appnext_interstitial">5ce3f29d-1e8e-473c-8829-c2e3bc80e763</string>
+    <string name="admob_interstitial">ca-app-pub-5322508131338449/9636390094</string>
+</resources>

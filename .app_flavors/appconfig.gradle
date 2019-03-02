@@ -1,0 +1,4 @@
+ CreativeAccountConfig {
+    serviceAccountEmail = '874480911370-compute@developer.gserviceaccount.com'
+    pk12File = file('../p12keys/GooglePlayAndroidDeveloper-0e529b99b09d.p12')
+}

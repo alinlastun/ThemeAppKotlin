@@ -1,0 +1,96 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.theme.junky.themeskotlin"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    /*playAccountConfigs {
+        CreativeAccountConfig {
+            serviceAccountEmail = '874480911370-compute@developer.gserviceaccount.com'
+            pk12File = file('../p12keys/GooglePlayAndroidDeveloper-0e529b99b09d.p12')
+        }
+    }*/
+    /* play {
+        track = 'production' // or 'rollout' or 'beta' or 'alpha'
+    }*/
+
+    signingConfigs {
+        ctthemes {
+            Properties props = new Properties()
+            props.load(new FileInputStream(file("../keystore/themesct.properties")))
+            storeFile file(props['key.store'])
+            storePassword props['key.store.password']
+            keyAlias props['key.alias']
+            keyPassword props['key.alias.password']
+        }
+
+    }
+
+    dataBinding {
+        enabled = true
+    }
+    productFlavors {
+        ct_update_keyboardplus {
+            applicationId "com.keyboard.plus.theme.update"
+            versionCode rootProject.ext.themeVersionCode
+            versionName rootProject.ext.themeVersionName
+            signingConfig signingConfigs.ctthemes
+            // playAccountConfig = playAccountConfigs.CreativeAccountConfig
+            flavorDimensions "default"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:design:28.0.0'
+    //retrofit
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.2.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    //admob
+    implementation 'com.google.android.gms:play-services-ads:17.1.2'
+    //appnext
+    implementation 'com.appnext.sdk:ads:2.4.4.472'
+    implementation 'com.appnext.sdk:banners:2.4.2.471.2'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+    // Mandatory
+    implementation project(':api')
+    implementation project(':gdx')
+    implementation project(':gdx-backend-android')
+    implementation project(':gdx-test')
+    implementation project(':rippereffectsLib1.0.1')
+    //Lifecycle
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    //Google Analytics
+    implementation 'com.google.android.gms:play-services-analytics:16.0.6'
+    implementation 'com.github.themejunky:Module_GoogleAnalyticsEvents:1.0.1'
+    implementation project(':TJ_NotifyRating-Repeat')
+}

@@ -1,0 +1,1 @@
+include ':app', ':api', ':gdx-backend-android', ':gdx-test', ':gdx', ':rippereffectsLib1.0.1', ':TJ_NotifyRating-Repeat'
